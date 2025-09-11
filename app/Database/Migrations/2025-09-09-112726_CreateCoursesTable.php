@@ -13,8 +13,8 @@ class CreateCoursesTable extends Migration
         'title'        => ['type' => 'VARCHAR', 'constraint' => 100],
         'description'  => ['type' => 'TEXT', 'null' => true],
         'instructor_id'=> ['type' => 'INT'],
-        'created_at'   => ['type' => 'DATETIME', 'null' => true],
-        'updated_at'   => ['type' => 'DATETIME', 'null' => true],
+        'created_at'   => ['type' => 'DATETIME'],
+        'updated_at'   => ['type' => 'DATETIME'],
     ]);
     $this->forge->addKey('id', true);
     $this->forge->createTable('courses');

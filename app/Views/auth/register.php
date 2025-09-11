@@ -71,22 +71,44 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="site-title">CI4 Site</h1>
                 <nav>
-                     <ul class="nav-links">
-                        <li><a href="<?= base_url('index') ?>">Home</a></li>
-                        <li><a href="<?= base_url('about') ?>">About</a></li>
-                        <li><a href="<?= base_url('contact') ?>">Contact</a></li>
-                        <li><a href="<?= base_url('register') ?>">Register</a></li>
-                        <li><a href="<?= base_url('login') ?>">Login</a></li>
-                        <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                    </ul>
+                    <ul class="nav-links">
+    <li><a href="<?= base_url('index') ?>">Home</a></li>
+    <li><a href="<?= base_url('about') ?>">About</a></li>
+    <li><a href="<?= base_url('contact') ?>">Contact</a></li>
+    <li><a href="<?= base_url('register') ?>">Register</a></li>
+    <li><a href="<?= base_url('login') ?>">Login</a></li>
+    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+</ul>
+
                 </nav>
             </div>
         </div>
     </header>
 
-  <!-- Main Content -->
-        <h1>Contact</h1>
-      <p>Welcome to My contact page</p>
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow p-4" style="width: 450px;">
+        <h3 class="text-center mb-4">Register</h3>
+        <?- form_open("/register") ?>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name:</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password_confirm" class="form-label">Confirm Password:</label>
+                <input type="password" name="password_confirm" id="password_confirm" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Register</button>
+        <?= form_close() ?>
+    </div>
+</div>
 
   <!-- Bootstrap JS (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
