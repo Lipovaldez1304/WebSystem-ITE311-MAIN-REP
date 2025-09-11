@@ -8,27 +8,14 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        $data = [
+        $students = [
             [
-                'name' => 'John',
-                'email' => 'john@student.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'role' => 'student'
-            ],
-            [
-                'name' => 'Smith',
-                'email' => 'jane@instructor.com',
-                'password' => password_hash('password', PASSWORD_DEFAULT),
-                'role' => 'instructor'
-            ],
-            [
-                'name' => 'Admin User',
-                'email' => 'admin@admin.com',
-                'password' => password_hash('admin123', PASSWORD_DEFAULT),
-                'role' => 'admin'
+                'username' => 'Kiara',
+                'email' => 'Kiara34@gmail.com',
+                'password' => 'user',
+                'role' => 'user'
             ]
         ];
-
-        $this->db->table('users')->insertBatch($data);
+        $this->db->table('users')->insertBatch($students);
     }
 }

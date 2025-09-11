@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($title) ? $title : 'CI4 Site' ?></title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
+    <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
+     <style>
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -63,30 +60,22 @@
     </style>
 </head>
 <body>
-
-
-    <!-- Top Header -->
-    <header class="top-header">
+  <header class="top-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="site-title">CI4 Site</h1>
                 <nav>
                     <ul class="nav-links">
-    <li><a href="<?= base_url('index') ?>">Home</a></li>
-    <li><a href="<?= base_url('about') ?>">About</a></li>
-    <li><a href="<?= base_url('contact') ?>">Contact</a></li>
-    <li><a href="<?= base_url('register') ?>">Register</a></li>
-    <li><a href="<?= base_url('login') ?>">Login</a></li>
-    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                       <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                        <li><a href="<?= base_url('about') ?>">About</a></li>
+                        <li><a href="<?= base_url('contact') ?>">Contact</a></li>
 </ul>
-
                 </nav>
             </div>
         </div>
     </header>
 
-  
-<div class="container mt-5">
+  <div class="container mt-5">
     <div class="card shadow p-4">
         <h2 class="page-title">Welcome, <?= session()->get('name') ?>!</h2>
         <p class="content-text">
@@ -95,8 +84,7 @@
         <a href="<?= base_url('logout') ?>" class="btn btn-danger">Logout</a>
     </div>
 </div>
-
-  <!-- Bootstrap JS (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
 </body>
 </html>
+

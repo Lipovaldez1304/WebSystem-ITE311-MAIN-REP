@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($title) ? $title : 'CI4 Site' ?></title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
+     <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
+
+       <style>
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -63,60 +61,42 @@
     </style>
 </head>
 <body>
-
-
-    <!-- Top Header -->
-    <header class="top-header">
+   <header class="top-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="site-title">CI4 Site</h1>
                 <nav>
                     <ul class="nav-links">
-    <li><a href="<?= base_url('index') ?>">Home</a></li>
-    <li><a href="<?= base_url('about') ?>">About</a></li>
-    <li><a href="<?= base_url('contact') ?>">Contact</a></li>
     <li><a href="<?= base_url('register') ?>">Register</a></li>
     <li><a href="<?= base_url('login') ?>">Login</a></li>
-    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
 </ul>
-
                 </nav>
             </div>
         </div>
     </header>
-
-  <!-- Main Content -->
-  
-<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow p-4" style="width: 400px;">
         <h3 class="text-center mb-4">Login</h3>
+    <?php if (session()->getFlashdata('error')): ?>
+          <div class="alert alert-danger">
+            <?= session()->getFlashdata('error') ?>
+          </div>
+    <?php endif; ?>
 
-        <!-- Show error/success messages -->
-        <?php if (session()->getFlashdata('error')): ?>
-            <div class="alert alert-danger">
-                <?= session()->getFlashdata('error') ?>
-            </div>
-        <?php endif; ?>
-        <?php if (session()->getFlashdata('success')): ?>
-            <div class="alert alert-success">
-                <?= session()->getFlashdata('success') ?>
-            </div>
-        <?php endif; ?>
-
-        <form action="<?= base_url('login') ?>" method="post">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
-    </div>
+    <form action="<?= base_url('login/auth') ?>" method="post">
+        <?= csrf_field() ?>
+      <div class="mb-3">
+         <label for="email">Email:</label>
+        <input type="email" name="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+         <label for="password">Password:</label>
+        <input type="password" name="password" class="form-control" id="password" required>
+      </div>
+      <button  type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+     </div>
 </div>
-  <!-- Bootstrap JS (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+    </body>
 </html>

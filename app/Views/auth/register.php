@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($title) ? $title : 'CI4 Site' ?></title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
+<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
+<style>
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -63,21 +60,15 @@
     </style>
 </head>
 <body>
-
-
-    <!-- Top Header -->
+   <!-- Top Header -->
     <header class="top-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="site-title">CI4 Site</h1>
                 <nav>
                     <ul class="nav-links">
-    <li><a href="<?= base_url('index') ?>">Home</a></li>
-    <li><a href="<?= base_url('about') ?>">About</a></li>
-    <li><a href="<?= base_url('contact') ?>">Contact</a></li>
     <li><a href="<?= base_url('register') ?>">Register</a></li>
     <li><a href="<?= base_url('login') ?>">Login</a></li>
-    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
 </ul>
 
                 </nav>
@@ -85,32 +76,46 @@
         </div>
     </header>
 
-  <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <?php $errors = session('errors') ?? []; ?>
+  <?php if (session('success')): ?>
+    <p style="color:green;"><?= esc(session('success')) ?></p>
+  <?php endif; ?>
+
+ <?php if (! empty($errors)): ?>
+    <div class="alert alert-danger">
+        <ul>
+        <?php foreach ($errors as $error): ?>
+            <li><?= esc($error) ?></li>
+        <?php endforeach ?>
+        </ul>
+    </div>
+  <?php endif; ?>
+
+   <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="card shadow p-4" style="width: 450px;">
         <h3 class="text-center mb-4">Register</h3>
-        <?- form_open("/register") ?>
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name:</label>
-                <input type="text" name="name" id="name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password_confirm" class="form-label">Confirm Password:</label>
-                <input type="password" name="password_confirm" id="password_confirm" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-success w-100">Register</button>
-        <?= form_close() ?>
-    </div>
+  <?= form_open('/register') ?>  <!-- auto-adds CSRF when filter is on -->
+<div class="mb-3">
+   <label for="floatingInput">Username:</label>
+  <input name="name" type="text"  value="<?= old('name') ?>" required class="form-control" id="name">
+</div>
+<div class="mb-3">
+   <label for="floatingInput">Email:</label>
+  <input name="email" type="email"  value="<?= old('email') ?>" required class="form-control" id="email">
+</div>
+<div class="mb-3">
+   <label for="floatingInput">Password:</label>
+  <input name="password" type="password"  value="<?= old('password') ?>" required class="form-control" id="password">
+</div>
+<div class="mb-3">
+  <label for="floatingInput">Confirm Password:</label>
+  <input name="pass_confirm" type="password"  value="<?= old('pass_confirm') ?>" required class="form-control" id="password_confirm">
+</div>
+    <button type="submit" class="btn btn-success w-100">Register</button>
+  <?= form_close() ?>
+  </div>
 </div>
 
-  <!-- Bootstrap JS (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
 </body>
 </html>

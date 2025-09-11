@@ -73,12 +73,9 @@
 
                 <nav>
                      <ul class="nav-links">
-    <li><a href="<?= base_url('index') ?>">Home</a></li>
-    <li><a href="<?= base_url('about') ?>">About</a></li>
-    <li><a href="<?= base_url('contact') ?>">Contact</a></li>
-    <li><a href="<?= base_url('register') ?>">Register</a></li>
-    <li><a href="<?= base_url('login') ?>">Login</a></li>
-    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+   <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                        <li><a href="<?= base_url('about') ?>">About</a></li>
+                        <li><a href="<?= base_url('contact') ?>">Contact</a></li>
 </ul>
                 </nav>
                 
